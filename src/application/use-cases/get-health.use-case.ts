@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IGetHealthUseCase } from '../../domain/contracts/get-health-use-case.interface';
-import { IHealthResponseDTO } from '../../domain/contracts/dtos/health-response.dto';
-import type { IEnvironmentService } from '../../domain/contracts/environment-service.interface';
+import { IGetHealthUseCase } from '@/domain/contracts/get-health-use-case.interface';
+import { IHealthResponseDTO } from '@/domain/contracts/dtos/health-response.dto';
+import type { IEnvironmentService } from '@/domain/contracts/environment-service.interface';
 import { INFRASTRUCTURE_TOKENS } from '../config/tokens';
 
 @Injectable()

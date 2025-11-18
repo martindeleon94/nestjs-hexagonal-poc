@@ -26,4 +26,8 @@ export class NestConfigEnvironmentService implements IEnvironmentService {
   isTest(): boolean {
     return this.getNodeEnv() === 'test';
   }
+
+  getDatabaseUrl(): string {
+    return this.configService.get<string>('DATABASE_URL') || '';
+  }
 }

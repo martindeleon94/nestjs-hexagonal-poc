@@ -8,7 +8,7 @@ import {
   INFRASTRUCTURE_TOKENS,
 } from '@/application/config/tokens';
 import { GetInfoUseCase } from '@/application/use-cases/get-info.use-case';
-import { UserModule } from '@/modules/user/user.module';
+import { UserModule } from '@/modules/user/infrastructure/user.module';
 
 @Module({
   imports: [

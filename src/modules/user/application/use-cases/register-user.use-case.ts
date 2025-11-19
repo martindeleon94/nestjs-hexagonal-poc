@@ -7,7 +7,7 @@ import {
 import { IsString, IsNotEmpty, IsEmail } from 'class-validator';
 import { User } from '../../domain/entities';
 import { Email, Password } from '../../domain/value-objects';
-import type { UserRepositoryPort } from '../../domain/ports';
+import type { IUserRepositoryPort } from '../../domain/ports';
 import { USER_REPOSITORY } from '../../domain/ports';
 
 export class RegisterUserDto {
@@ -30,7 +30,7 @@ export interface IRegisterUserResponseDto {
 export class RegisterUserUseCase {
   constructor(
     @Inject(USER_REPOSITORY)
-    private readonly userRepository: UserRepositoryPort,
+    private readonly userRepository: IUserRepositoryPort,
   ) {}
   async execute(dto: RegisterUserDto): Promise<IRegisterUserResponseDto> {
     let email: Email;

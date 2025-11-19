@@ -130,22 +130,22 @@ chore: [TASK-128] update eslint configuration
 ### Bad Commit Examples (Avoid)
 
 ```bash
-# ❌ Too vague
+# Too vague
 fix: bug fix
 
-# ❌ Missing task ID
+# Missing task ID
 feat: add products
 
-# ❌ Past tense
+# Past tense
 feat: [TASK-123] added product endpoint
 
-# ❌ Too long subject line
+# Too long subject line
 feat: [TASK-123] implemented the complete product CRUD functionality with all validations and error handling
 
-# ❌ Multiple unrelated changes
+# Multiple unrelated changes
 feat: [TASK-123] add products, fix user bug, update docs
 
-# ❌ Multi-line commit (NEVER DO THIS)
+# Multi-line commit (NEVER DO THIS)
 feat: [TASK-123] add product endpoint
 
 Implements POST /products endpoint with validation.

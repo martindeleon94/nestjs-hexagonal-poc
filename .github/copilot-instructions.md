@@ -52,10 +52,10 @@ Infrastructure Layer - src/infrastructure/
 
 **Forbidden Imports:**
 
-- ❌ `infrastructure/controllers` → Never import into domain/application layers
-- ❌ External framework code → Never import NestJS decorators in domain/application layers
-- ❌ `node_modules` → Never import directly in domain/application layers (use interfaces)
-- ✅ External libraries ONLY in infrastructure layer or via abstracted interfaces
+- `infrastructure/controllers` → Never import into domain/application layers
+- External framework code → Never import NestJS decorators in domain/application layers
+- `node_modules` → Never import directly in domain/application layers (use interfaces)
+- External libraries ONLY in infrastructure layer or via abstracted interfaces
 
 ### Entity Pattern (Domain Layer)
 
@@ -402,20 +402,20 @@ This project uses one Model Context Protocol (MCP) server configured in `.vscode
 
 ## What Copilot Should NEVER Do
 
-- ❌ Import from infrastructure/controllers into domain/application layers
-- ❌ Place NestJS decorators inside domain or application layers
-- ❌ Skip writing unit or E2E tests (95%+ coverage required)
-- ❌ Comment files excessively; prefer clear, self-explanatory code
-- ❌ Add business logic in application use cases or infrastructure
-- ❌ Expose domain entities directly (always use DTOs)
-- ❌ Forget `I` prefix on interfaces or `DTO` suffix on data transfer objects
-- ❌ Create use cases with more than 3 dependencies
-- ❌ Test infrastructure services like databases or external APIs in use case tests (always mock)
-- ❌ Import external libraries (node_modules) directly in domain/application layers (use interfaces)
-- ❌ Use magic numbers for HTTP status codes (ALWAYS use HttpStatus enum)
-- ❌ Use HttpException in domain/application layers (use domain errors instead)
-- ❌ Forget @HttpCode decorator on controller methods
-- ❌ Forget to convert domain errors to HttpException in controllers
+- Import from infrastructure/controllers into domain/application layers
+- Place NestJS decorators inside domain or application layers
+- Skip writing unit or E2E tests (95%+ coverage required)
+- Comment files excessively; prefer clear, self-explanatory code
+- Add business logic in application use cases or infrastructure
+- Expose domain entities directly (always use DTOs)
+- Forget `I` prefix on interfaces or `DTO` suffix on data transfer objects
+- Create use cases with more than 3 dependencies
+- Test infrastructure services like databases or external APIs in use case tests (always mock)
+- Import external libraries (node_modules) directly in domain/application layers (use interfaces)
+- Use magic numbers for HTTP status codes (ALWAYS use HttpStatus enum)
+- Use HttpException in domain/application layers (use domain errors instead)
+- Forget @HttpCode decorator on controller methods
+- Forget to convert domain errors to HttpException in controllers
 
 ---
 

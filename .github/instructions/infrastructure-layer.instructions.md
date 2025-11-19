@@ -196,11 +196,11 @@ import { PRODUCT_TOKENS, INFRASTRUCTURE_TOKENS } from '../application/config/tok
     },
     {
       provide: PRODUCT_TOKENS.GET_PRODUCTS_USE_CASE,
-      useClass: GetProductsUseCase,  // ✅ No inject array needed - @Injectable() handles it
+      useClass: GetProductsUseCase,  // No inject array needed - @Injectable() handles it
     },
     {
       provide: PRODUCT_TOKENS.GET_PRODUCT_BY_ID_USE_CASE,
-      useClass: GetProductByIdUseCase,  // ✅ NestJS resolves dependencies automatically
+      useClass: GetProductByIdUseCase,  // NestJS resolves dependencies automatically
     },
   ],
 })
@@ -218,7 +218,7 @@ export class AppModule {}
 
 ### Why @Injectable() is Mandatory
 
-**✅ CORRECT:**
+**CORRECT:**
 ```typescript
 @Injectable()
 export class GetProductsUseCase {
@@ -235,7 +235,7 @@ export class GetProductsUseCase {
 }
 ```
 
-**❌ WRONG:**
+**WRONG:**
 ```typescript
 // Missing @Injectable() decorator
 export class GetProductsUseCase {
@@ -251,11 +251,11 @@ export class GetProductsUseCase {
 ```
 
 **Benefits:**
-- ✅ NestJS manages lifecycle automatically
-- ✅ Dependencies auto-resolved via reflection
-- ✅ Cleaner module configuration
-- ✅ Type-safe refactoring
-- ✅ Easier testing (NestJS Test utilities work seamlessly)
+- NestJS manages lifecycle automatically
+- Dependencies auto-resolved via reflection
+- Cleaner module configuration
+- Type-safe refactoring
+- Easier testing (NestJS Test utilities work seamlessly)
 
 ## HTTP Client
 
@@ -456,9 +456,9 @@ throw new HttpException('Internal error', HttpStatus.INTERNAL_SERVER_ERROR); // 
 
 ## What NOT to Do
 
-❌ **Never** return DTOs from repositories (return entities)  
-❌ **Never** skip error handling  
-❌ **Never** create singletons unless necessary  
-❌ **Never** hard-code configuration (use constructor injection)  
-❌ **Never** test infrastructure services (always mock in tests)  
-❌ **Never** import external libraries directly in domain/application (use interfaces)
+**Never** return DTOs from repositories (return entities)  
+**Never** skip error handling  
+**Never** create singletons unless necessary  
+**Never** hard-code configuration (use constructor injection)  
+**Never** test infrastructure services (always mock in tests)  
+**Never** import external libraries directly in domain/application (use interfaces)

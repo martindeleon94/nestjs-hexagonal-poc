@@ -27,7 +27,7 @@ chore: [TASK-184730] update dependencies
 
 ### 3. What NOT to Do
 
-❌ **WRONG** - Multi-line with body:
+**WRONG** - Multi-line with body:
 ```bash
 git commit -m "$(cat <<'EOF'
 feat: [TASK-123] add feature
@@ -41,7 +41,7 @@ EOF
 )"
 ```
 
-✅ **CORRECT** - Single line:
+**CORRECT** - Single line:
 ```bash
 git commit -m "feat: [TASK-123] add feature"
 ```
@@ -137,17 +137,17 @@ Approve? (yes/no)"
 ## Summary
 
 **Remember:**
-- ✅ Single line only
-- ✅ No co-author
-- ✅ No "Generated with" messages
-- ✅ Simple `git commit -m "message"`
-- ✅ One commit per file (or logical group)
-- ✅ Always ask for confirmation
-- ✅ Use correct task ID format
+- Single line only
+- No co-author
+- No "Generated with" messages
+- Simple `git commit -m "message"`
+- One commit per file (or logical group)
+- Always ask for confirmation
+- Use correct task ID format
 
 **Never:**
-- ❌ Multi-line commits
-- ❌ HEREDOC syntax
-- ❌ Body or footer
-- ❌ Co-author lines
-- ❌ Marketing messages
+- Multi-line commits
+- HEREDOC syntax
+- Body or footer
+- Co-author lines
+- Marketing messages

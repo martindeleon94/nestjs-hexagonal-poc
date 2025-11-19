@@ -405,7 +405,7 @@ export class MockFactory {
 
 ### Forbidden Patterns
 
-❌ **DO NOT**:
+**DO NOT**:
 - Import from infrastructure into domain/application
 - Use NestJS decorators in domain/application layers
 - Import external libraries in domain/application (use interfaces)
@@ -415,7 +415,7 @@ export class MockFactory {
 - Use magic numbers for HTTP status (use HttpStatus enum)
 - Skip tests (95% coverage required)
 
-✅ **DO**:
+**DO**:
 - Define interfaces in domain/contracts
 - Implement interfaces in infrastructure
 - Keep domain layer pure TypeScript

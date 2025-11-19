@@ -134,12 +134,12 @@ src/test/modules/{module-name}/
 - **Flow**: Controller receives API DTO → Converts to Domain DTO → Calls use case with Domain DTO → Use case returns Domain DTO → Controller converts to API response
 
 **Key Rules:**
-- ✅ One microservice = One bounded context
-- ✅ Hexagonal layers: `domain/`, `application/`, `infrastructure/` at root level
-- ✅ Controllers live in `infrastructure/controllers/`
-- ✅ DI tokens defined in `application/config/tokens.ts` using Symbol()
-- ✅ `app.module.ts` handles all dependency injection
-- ✅ Utilities (HTTP client, logger, UUID) go in `infrastructure/`
+- One microservice = One bounded context
+- Hexagonal layers: `domain/`, `application/`, `infrastructure/` at root level
+- Controllers live in `infrastructure/controllers/`
+- DI tokens defined in `application/config/tokens.ts` using Symbol()
+- `app.module.ts` handles all dependency injection
+- Utilities (HTTP client, logger, UUID) go in `infrastructure/`
 
 ## Generic Use Case Interface
 
@@ -172,8 +172,8 @@ export class GetProductsUseCase implements IUseCase<IProductFiltersDTO, IPaginat
 
 ## What NOT to Do
 
-❌ **Never** create nested modules (`src/modules/products/submodule`) - not allowed  
-❌ **Never** put business logic in infrastructure layer  
-❌ **Never** import NestJS decorators in domain or application layers  
-❌ **Never** expose domain entities directly (always use DTOs)  
-❌ **Never** skip tests (maintain 95%+ lines/statements, 90%+ branches/functions)
+**Never** create nested modules (`src/modules/products/submodule`) - not allowed  
+**Never** put business logic in infrastructure layer  
+**Never** import NestJS decorators in domain or application layers  
+**Never** expose domain entities directly (always use DTOs)  
+**Never** skip tests (maintain 95%+ lines/statements, 90%+ branches/functions)

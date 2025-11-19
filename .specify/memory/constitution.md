@@ -4,12 +4,12 @@ Sync Impact Report:
 - Modified principles: 
   * Principle V (Interface Segregation) - Added explicit requirement for specific, domain-driven interface methods
 - Added sections: 
-  * Interface design examples (✅ correct vs ❌ wrong patterns)
+  * Interface design examples (correct vs wrong patterns)
   * Rationale expanded to emphasize business operation clarity
 - Removed sections: None
 - Templates requiring updates:
-  ✅ constitution.md - Updated with specific interface method requirement (v1.1.0)
-  ✅ domain-layer.instructions.md - Added "Interface Design Principles (DDD Expert Level)" section
+  constitution.md - Updated with specific interface method requirement (v1.1.0)
+  domain-layer.instructions.md - Added "Interface Design Principles (DDD Expert Level)" section
   ⚠ plan-template.md - Should reference new constitution principles
   ⚠ spec-template.md - Should align with DDD and testing requirements
   ⚠ tasks-template.md - Should reflect layer-based task categorization
@@ -83,13 +83,13 @@ All contracts defined as interfaces with strict naming conventions:
 
 **Examples of specific interface methods:**
 ```typescript
-✅ interface IEnvironmentService {
+interface IEnvironmentService {
   getNodeEnv(): string;
   getPort(): number;
   isDevelopment(): boolean;
 }
 
-❌ interface IEnvironmentService {
+interface IEnvironmentService {
   get(key: string): string | undefined;  // Too generic
   set(key: string, value: any): void;    // Violates DDD
 }
@@ -123,10 +123,10 @@ All errors and logging follow consistent patterns:
 
 ### Forbidden Imports (Strictly Enforced)
 
-- ❌ `infrastructure/controllers` → NEVER import into domain/application layers
-- ❌ External framework code → NEVER import NestJS decorators in domain/application layers
-- ❌ `node_modules` → NEVER import directly in domain/application layers (use interfaces)
-- ✅ External libraries ONLY in infrastructure layer or via abstracted interfaces
+- `infrastructure/controllers` → NEVER import into domain/application layers
+- External framework code → NEVER import NestJS decorators in domain/application layers
+- `node_modules` → NEVER import directly in domain/application layers (use interfaces)
+- External libraries ONLY in infrastructure layer or via abstracted interfaces
 
 ### File Organization Standards
 

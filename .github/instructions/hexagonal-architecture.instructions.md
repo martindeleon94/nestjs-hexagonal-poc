@@ -32,13 +32,13 @@ applyTo: '**'
 
 | Layer                                | NestJS Aware | Responsibility                                                           |
 | ------------------------------------ | ------------ | ------------------------------------------------------------------------ |
-| `modules/infrastructure/controllers` | ✅           | REST/GraphQL endpoints; uses NestJS decorators (@Controller, @Get, etc.) |
-| `modules/domain/contracts`           | ❌           | Interfaces (I-prefix) & DTOs (I-prefix + DTO-suffix)                     |
-| `modules/domain/entities`            | ❌           | Domain entities with `_entity` schema pattern; immutable                 |
-| `modules/domain/value-objects`       | ❌           | Validation & business rules with `_entity` schema pattern                |
-| `modules/infrastructure`             | ❌           | Framework-agnostic implementations; class-based OOP ok                   |
-| `modules/application/services`       | ❌           | Orchestration only (max 3 dependencies); no business logic               |
-| `modules/application/dto`            | ❌           | Data Transfer Objects for API requests/responses                         |
+| `modules/infrastructure/controllers` |           | REST/GraphQL endpoints; uses NestJS decorators (@Controller, @Get, etc.) |
+| `modules/domain/contracts`           |           | Interfaces (I-prefix) & DTOs (I-prefix + DTO-suffix)                     |
+| `modules/domain/entities`            |           | Domain entities with `_entity` schema pattern; immutable                 |
+| `modules/domain/value-objects`       |           | Validation & business rules with `_entity` schema pattern                |
+| `modules/infrastructure`             |           | Framework-agnostic implementations; class-based OOP ok                   |
+| `modules/application/services`       |           | Orchestration only (max 3 dependencies); no business logic               |
+| `modules/application/dto`            |           | Data Transfer Objects for API requests/responses                         |
 
 ## Dependency Rules
 
@@ -64,7 +64,7 @@ applyTo: '**'
 **Example - HTTP Client:**
 
 ```typescript
-// ❌ WRONG - Direct import in application layer
+// WRONG - Direct import in application layer
 import axios from 'axios'; // NO!
 
 export class ProductUseCase {
@@ -75,7 +75,7 @@ export class ProductUseCase {
 ```
 
 ```typescript
-// ✅ CORRECT - Interface in domain, implementation in shared module
+// CORRECT - Interface in domain, implementation in shared module
 
 // 1. Define interface in shared/domain/contracts/
 export interface IHttpClient {
@@ -113,10 +113,10 @@ export class ProductUseCase implements IProductUseCase {
 
 **Allowed Direct Imports:**
 
-- ✅ TypeScript utilities (built-in types)
-- ✅ Node.js built-ins (in infrastructure only)
-- ✅ NestJS decorators (in infrastructure/controllers only)
-- ❌ Third-party libraries in domain/application (use interfaces!)
+- TypeScript utilities (built-in types)
+- Node.js built-ins (in infrastructure only)
+- NestJS decorators (in infrastructure/controllers only)
+- Third-party libraries in domain/application (use interfaces!)
 
 **Rule Summary:**
 

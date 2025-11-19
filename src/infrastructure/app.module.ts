@@ -8,6 +8,7 @@ import {
   INFRASTRUCTURE_TOKENS,
 } from '@/application/config/tokens';
 import { GetInfoUseCase } from '@/application/use-cases/get-info.use-case';
+import { UserModule } from '@/modules/user/user.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { GetInfoUseCase } from '@/application/use-cases/get-info.use-case';
       isGlobal: true,
       envFilePath: '.env',
     }),
+    UserModule,
   ],
   controllers: [HealthController],
   providers: [

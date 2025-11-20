@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { UserController } from './controllers';
-import { RegisterUserUseCase } from '../application/use-cases';
+import {
+  RegisterUserUseCase,
+  GetUserByEmailUseCase,
+} from '../application/use-cases';
 import { PrismaUserRepository } from './persistence/prisma';
 import { USER_REPOSITORY } from '../domain/ports';
 import { PrismaService } from '@/shared/infrastructure/persistence/prisma';
@@ -10,6 +13,7 @@ import { PrismaService } from '@/shared/infrastructure/persistence/prisma';
   providers: [
     PrismaService,
     RegisterUserUseCase,
+    GetUserByEmailUseCase,
     {
       provide: USER_REPOSITORY,
       useFactory: (prismaService: PrismaService) => {
@@ -18,6 +22,6 @@ import { PrismaService } from '@/shared/infrastructure/persistence/prisma';
       inject: [PrismaService],
     },
   ],
-  exports: [USER_REPOSITORY, RegisterUserUseCase],
+  exports: [USER_REPOSITORY, RegisterUserUseCase, GetUserByEmailUseCase],
 })
 export class UserModule {}

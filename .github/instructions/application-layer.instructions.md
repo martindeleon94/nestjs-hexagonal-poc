@@ -21,7 +21,7 @@ applyTo: '**/application/**'
 
 ### Use Case Dependency Injection Pattern (CRITICAL)
 
-**✅ CORRECT - Using @Injectable() and @Inject() with Symbols:**
+**CORRECT - Using @Injectable() and @Inject() with Symbols:**
 ```typescript
 import { Inject, Injectable } from '@nestjs/common';
 import { IGetProductsUseCase } from '../../domain/contracts/get-products-use-case.interface';
@@ -41,21 +41,21 @@ export class GetProductsUseCase implements IGetProductsUseCase {
 }
 ```
 
-**❌ WRONG - Without @Injectable() or using factory functions:**
+**WRONG - Without @Injectable() or using factory functions:**
 ```typescript
-// ❌ Missing @Injectable() decorator
+// Missing @Injectable() decorator
 export class GetProductsUseCase implements IGetProductsUseCase {
   constructor(private readonly productRepository: IProductRepository) {}
 }
 
-// ❌ Using factory function in module (DON'T DO THIS)
+// Using factory function in module (DON'T DO THIS)
 {
   provide: PRODUCT_TOKENS.GET_PRODUCTS_USE_CASE,
   useFactory: (repo: IProductRepository) => new GetProductsUseCase(repo),
   inject: [PRODUCT_TOKENS.PRODUCT_REPOSITORY],
 }
 
-// ✅ CORRECT - Use useClass instead
+// CORRECT - Use useClass instead
 {
   provide: PRODUCT_TOKENS.GET_PRODUCTS_USE_CASE,
   useClass: GetProductsUseCase,
@@ -161,8 +161,8 @@ application/
 
 ## What NOT to Do
 
-❌ **Never** add business logic in use cases (domain only)  
-❌ **Never** expose entities directly (always use DTOs)  
-❌ **Never** exceed 3 dependencies in use case constructors  
-❌ **Never** validate in use cases (domain layer handles it)  
-❌ **Never** import external libraries from node_modules (axios, dayjs, etc.) - use interfaces from shared modules
+**Never** add business logic in use cases (domain only)  
+**Never** expose entities directly (always use DTOs)  
+**Never** exceed 3 dependencies in use case constructors  
+**Never** validate in use cases (domain layer handles it)  
+**Never** import external libraries from node_modules (axios, dayjs, etc.) - use interfaces from shared modules

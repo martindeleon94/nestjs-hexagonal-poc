@@ -57,3 +57,11 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # User histories
 .user-histories
+
+# Docs
+/.docs/*
+
+# Claude agents (local only)
+/.claude/agents/*
+
+/generated/prisma

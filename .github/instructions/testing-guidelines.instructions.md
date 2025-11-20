@@ -154,12 +154,12 @@ describe('ProductController', () => {
 ```
 
 ### Controller Testing Rules
-- ✅ **Use NestJS testing utilities** - Test.createTestingModule()
-- ✅ **Mock use cases** - Mock use case dependencies via providers
-- ✅ **Test HTTP handling** - Verify controller methods work correctly
-- ✅ **Test DTO conversion** - Ensure API DTOs convert to Domain DTOs
-- ✅ **Test error handling** - Verify error responses
-- ❌ **Don't test business logic** - Business logic is in domain/use cases
+- **Use NestJS testing utilities** - Test.createTestingModule()
+- **Mock use cases** - Mock use case dependencies via providers
+- **Test HTTP handling** - Verify controller methods work correctly
+- **Test DTO conversion** - Ensure API DTOs convert to Domain DTOs
+- **Test error handling** - Verify error responses
+- **Don't test business logic** - Business logic is in domain/use cases
 
 ## Priority 2: Use Case Testing (Application Layer)
 
@@ -259,11 +259,11 @@ describe('ProductListUseCase', () => {
 ```
 
 ### Application Testing Rules
-- ✅ **Always mock dependencies** - Mock repositories, external services
-- ✅ **Test use case orchestration** - Verify use case calls repository correctly
-- ✅ **Test DTO conversion** - Ensure entities converted to DTOs
-- ✅ **Test error handling** - Verify error interpretation
-- ❌ **Never test infrastructure** - Don't test actual repositories/APIs
+- **Always mock dependencies** - Mock repositories, external services
+- **Test use case orchestration** - Verify use case calls repository correctly
+- **Test DTO conversion** - Ensure entities converted to DTOs
+- **Test error handling** - Verify error interpretation
+- **Never test infrastructure** - Don't test actual repositories/APIs
 
 ## Priority 3: Domain Layer Testing
 
@@ -392,26 +392,26 @@ describe('Price Value Object', () => {
 ```
 
 ### Domain Testing Rules
-- ✅ **No mocks needed** - Domain layer is pure TypeScript
-- ✅ **Test all business logic** - Cover all entity methods
-- ✅ **Test validation** - Verify value object validation works
-- ✅ **Test immutability** - Ensure entities return new instances
-- ✅ **Edge cases** - Test boundary conditions
-- ❌ **No infrastructure** - Don't test repositories here
+- **No mocks needed** - Domain layer is pure TypeScript
+- **Test all business logic** - Cover all entity methods
+- **Test validation** - Verify value object validation works
+- **Test immutability** - Ensure entities return new instances
+- **Edge cases** - Test boundary conditions
+- **No infrastructure** - Don't test repositories here
 
 ## Best Practices
 
 ### General Testing Rules
-- ✅ **Test public APIs only** - Don't test private methods
-- ✅ **Fast tests** - Tests should run quickly
-- ✅ **Deterministic** - Tests should always produce same result
-- ✅ **Cover edge cases** - Test boundary conditions
-- ✅ **Use jest.fn()** - For simple mocks
-- ✅ **Use jest-mock-extended** - For complex interface mocks
-- ✅ **90%+ coverage** - Maintain high test coverage
-- ❌ **Don't test implementation** - Test behavior, not internals
-- ❌ **Don't create test-only interfaces** - Use domain interfaces
-- ❌ **Don't test infrastructure** - Always mock external dependencies
+- **Test public APIs only** - Don't test private methods
+- **Fast tests** - Tests should run quickly
+- **Deterministic** - Tests should always produce same result
+- **Cover edge cases** - Test boundary conditions
+- **Use jest.fn()** - For simple mocks
+- **Use jest-mock-extended** - For complex interface mocks
+- **90%+ coverage** - Maintain high test coverage
+- **Don't test implementation** - Test behavior, not internals
+- **Don't create test-only interfaces** - Use domain interfaces
+- **Don't test infrastructure** - Always mock external dependencies
 
 ### Mock Guidelines
 ```typescript
@@ -455,11 +455,11 @@ tests/
 
 ## What NOT to Do
 
-❌ **Never** test infrastructure services like databases or AWS in use case tests  
-❌ **Never** skip mocking external dependencies  
-❌ **Never** test private methods directly  
-❌ **Never** create interfaces just for testing  
-❌ **Never** write slow tests (database calls without mocks)  
-❌ **Never** write flaky tests (non-deterministic)  
-❌ **Never** skip edge case testing  
-❌ **Never** forget to check test coverage (`npm run test:coverage`)
+**Never** test infrastructure services like databases or AWS in use case tests  
+**Never** skip mocking external dependencies  
+**Never** test private methods directly  
+**Never** create interfaces just for testing  
+**Never** write slow tests (database calls without mocks)  
+**Never** write flaky tests (non-deterministic)  
+**Never** skip edge case testing  
+**Never** forget to check test coverage (`npm run test:coverage`)

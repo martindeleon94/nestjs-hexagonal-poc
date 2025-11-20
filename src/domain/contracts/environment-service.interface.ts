@@ -4,4 +4,5 @@ export interface IEnvironmentService {
   isDevelopment(): boolean;
   isProduction(): boolean;
   isTest(): boolean;
+  getDatabaseUrl(): string;
 }

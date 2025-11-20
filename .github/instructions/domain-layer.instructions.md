@@ -18,7 +18,7 @@ applyTo: '**/domain/**'
 
 ### Interface Design Principles (DDD Expert Level)
 
-**✅ CORRECT - Specific, domain-driven methods:**
+**CORRECT - Specific, domain-driven methods:**
 ```typescript
 // Good: Explicit, domain-specific methods
 interface IEnvironmentService {
@@ -43,22 +43,22 @@ interface IEmailService {
 }
 ```
 
-**❌ WRONG - Generic, non-domain methods:**
+**WRONG - Generic, non-domain methods:**
 ```typescript
 // Bad: Generic methods that could be anything
 interface IEnvironmentService {
-  get(key: string): string | undefined;  // ❌ Too generic
-  getOrThrow(key: string): string;       // ❌ Not domain-specific
-  set(key: string, value: any): void;    // ❌ Violates DDD
+  get(key: string): string | undefined;  // Too generic
+  getOrThrow(key: string): string;       // Not domain-specific
+  set(key: string, value: any): void;    // Violates DDD
 }
 
 interface IRepository<T> {
-  find(query: any): Promise<T[]>;        // ❌ Not type-safe
-  save(entity: any): Promise<T>;         // ❌ Any type defeats purpose
+  find(query: any): Promise<T[]>;        // Not type-safe
+  save(entity: any): Promise<T>;         // Any type defeats purpose
 }
 
 interface IEmailService {
-  send(to: string, subject: string, body: string): Promise<void>;  // ❌ Too generic
+  send(to: string, subject: string, body: string): Promise<void>;  // Too generic
 }
 ```
 
@@ -445,11 +445,11 @@ domain/
 
 ## What NOT to Do
 
-❌ **Never** add framework dependencies (NestJS decorators in domain layer)  
-❌ **Never** import external libraries from node_modules (axios, dayjs, etc.) - use interfaces from shared modules  
-❌ **Never** add business logic in services or infrastructure  
-❌ **Never** expose entities directly (always use DTOs)  
-❌ **Never** make entities mutable  
-❌ **Never** skip validation in value objects  
-❌ **Never** forget `I` prefix on interfaces  
-❌ **Never** forget `DTO` suffix on DTOs
+**Never** add framework dependencies (NestJS decorators in domain layer)  
+**Never** import external libraries from node_modules (axios, dayjs, etc.) - use interfaces from shared modules  
+**Never** add business logic in services or infrastructure  
+**Never** expose entities directly (always use DTOs)  
+**Never** make entities mutable  
+**Never** skip validation in value objects  
+**Never** forget `I` prefix on interfaces  
+**Never** forget `DTO` suffix on DTOs

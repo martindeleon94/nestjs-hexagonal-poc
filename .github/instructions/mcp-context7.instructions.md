@@ -230,14 +230,14 @@ constructor(private emailService: IEmailService) {}
 
 ## Important Rules
 
-✅ **DO:**
+**DO:**
 - Use Context7 to understand library APIs before implementing
 - Create interface wrappers for external libraries used in domain/application
 - Implement wrappers in shared modules' infrastructure layer
 - Use Context7 for framework-specific documentation (NestJS, TypeScript)
 - Check version-specific documentation (NestJS 11, TypeScript)
 
-❌ **DON'T:**
+**DON'T:**
 - Import external libraries directly in domain/application layers
 - Skip creating interface wrappers for node_modules dependencies
 - Use Context7 as a substitute for proper abstraction
@@ -249,16 +249,16 @@ constructor(private emailService: IEmailService) {}
 ### 1. Version-Specific Queries
 Always specify versions when querying:
 ```
-✅ "Get NestJS 11 dependency injection documentation"
-✅ "Get TypeScript 5.x decorators documentation"
-❌ "Get NestJS documentation" (may return old version)
+"Get NestJS 11 dependency injection documentation"
+"Get TypeScript 5.x decorators documentation"
+"Get NestJS documentation" (may return old version)
 ```
 
 ### 2. Framework-Specific Patterns
 Ask for framework-specific examples:
 ```
-✅ "Get NestJS 11 guards and interceptors examples"
-✅ "Get NestJS 11 custom decorators patterns"
+"Get NestJS 11 guards and interceptors examples"
+"Get NestJS 11 custom decorators patterns"
 ```
 
 ### 3. Integration Patterns
